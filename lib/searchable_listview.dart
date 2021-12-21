@@ -126,6 +126,7 @@ class _SearchableListState<T> extends State<SearchableList> {
             : Expanded(
                 child: ListView.builder(
                   shrinkWrap: widget.shrinkWrap,
+                  physics: widget.shrinkWrap == true ? const ClampingScrollPhysics() : null,
                   itemCount: displayedList.length,
                   itemBuilder: (context, index) => widget.builder(
                     displayedList[index],
