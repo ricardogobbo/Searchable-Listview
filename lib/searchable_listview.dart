@@ -96,6 +96,7 @@ class _SearchableListState<T> extends State<SearchableList> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         TextField(
           focusNode: widget.focusNode,
