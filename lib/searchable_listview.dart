@@ -17,6 +17,7 @@ class SearchableList<T> extends StatefulWidget {
     this.obscureText = false,
     this.focusNode,
     this.searchFieldEnabled = true,
+    this.shrinkWrap = false,
   }) : super(key: key);
 
   ///initial list to be displayed which contains all elements
@@ -82,6 +83,9 @@ class SearchableList<T> extends StatefulWidget {
   ///the focus node applied on the search text field
   final FocusNode? focusNode;
 
+  ///shrink wrap widget
+  final bool shrinkWrap;
+
   @override
   State<SearchableList> createState() => _SearchableListState<T>();
 }
@@ -120,6 +124,7 @@ class _SearchableListState<T> extends State<SearchableList> {
             ? widget.emptyWidget
             : Expanded(
                 child: ListView.builder(
+                  shrinkWrap: widget.shrinkWrap,
                   itemCount: displayedList.length,
                   itemBuilder: (context, index) => widget.builder(
                     displayedList[index],
